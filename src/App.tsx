@@ -4,17 +4,35 @@ import BasicLayout from "./layouts/BasicLayout";
 
 const Home = lazy(() => import("./pages/HomePage"));
 const Popular = lazy(() => import("./pages/PopularMovies"));
+const MovieDescription = lazy(() => import("./pages/MovieDescription"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function App() {
   return (
     <div className="App">
       <Routes>
+        <Route
+          path="*"
+          element={
+            <Suspense fallback={<>...</>}>
+              <NotFound />
+            </Suspense>
+          }
+        />
         <Route path="/" element={<BasicLayout />}>
           <Route
             index
             element={
               <Suspense fallback={<>...</>}>
                 <Home />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/movie/:movieId"
+            element={
+              <Suspense fallback={<>...</>}>
+                <MovieDescription />
               </Suspense>
             }
           />
