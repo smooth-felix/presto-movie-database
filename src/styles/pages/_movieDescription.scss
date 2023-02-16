@@ -1,0 +1,10 @@
+.movie-details {
+  text-align: left;
+
+  .cover-image {
+    width: 100%;
+    max-height: calc(100vh - 150px);
+    max-width: 500px;
+    width: auto;
+  }
+}

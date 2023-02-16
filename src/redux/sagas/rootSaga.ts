@@ -1,7 +1,7 @@
-export function* helloSaga() {
-  console.log("Hello Saga");
-}
+import { all, fork } from "redux-saga/effects";
+import configurationsSagas from "./configurationsSagas";
+import moviesSagas from "./movieSagas";
 
 export default function* rootSaga() {
-  console.log("root saga");
+  yield all([fork(configurationsSagas), fork(moviesSagas)]);
 }

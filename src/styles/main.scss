@@ -14,7 +14,11 @@ $theme-colors: (
 @import "layout/header";
 @import "layout/footer";
 
+@import "pages/movieDescription";
 @import "pages/home";
+
+@import "components/components";
+
 * {
   margin: 0;
   padding: 0;
