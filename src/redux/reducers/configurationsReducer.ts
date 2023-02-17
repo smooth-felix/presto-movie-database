@@ -48,7 +48,8 @@ const configurationsReducer = (
           genreData: {
             loading: false,
             error: null,
-            genres: (action.payload as ConfigurationSuccessResponse).genres,
+            genres: (action.payload as ConfigurationSuccessResponse).data
+              .genres,
           },
         };
       }

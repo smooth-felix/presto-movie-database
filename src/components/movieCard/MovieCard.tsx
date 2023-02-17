@@ -12,10 +12,6 @@ type MovieCardProps = {
   id: number;
 };
 
-// TODO
-// replace the image poster with the banner in small Window Sizes.
-// style alterations.
-
 const MovieCard: React.FC<MovieCardProps> = (props) => {
   const { title, imgSrc, overview, releaseDate, id } = props;
 
@@ -27,7 +23,7 @@ const MovieCard: React.FC<MovieCardProps> = (props) => {
     overview.length === 0
       ? "No description is given."
       : overview.length > 250
-      ? overview.substring(0, 250) + "..."
+      ? overview.substring(0, 200) + "..."
       : overview;
 
   const handleButtonClick = () => {
@@ -38,11 +34,11 @@ const MovieCard: React.FC<MovieCardProps> = (props) => {
     <Card className="mt-3 p-2">
       <Row className="no-gutter">
         <Col md={4}>
-          <Card.Img src={imgSrc} />
+          <Card.Img className="movie-card-image" src={imgSrc} />
         </Col>
         <Col md={8}>
           <Card.Title className="text-primary movie-title">{title}</Card.Title>
-          <p>{releasedYear}</p>
+          <p className="released-year">{releasedYear}</p>
           <Card.Text className="movie-overview">{truncatedText}</Card.Text>
           <Button
             className="more-button"

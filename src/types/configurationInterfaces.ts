@@ -6,7 +6,7 @@ export interface GenreListItem {
 }
 
 export interface ConfigurationSuccessResponse extends GenericResponse {
-  genres: Array<GenreListItem>;
+  data: { genres: Array<GenreListItem> };
 }
 
 export type ConfigurationsApiResponse =

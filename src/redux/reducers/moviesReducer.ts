@@ -6,6 +6,9 @@ import {
   PopularMoviesApiSuccessResponse,
 } from "../../types/moviesInterfaces";
 import {
+  CLEAR_MOVIE,
+  CLEAR_NOW_PLAYING_MOVIES,
+  CLEAR_POPULAR_MOVIES,
   FETCH_MOVIE,
   FETCH_NOW_PLAYING_MOVIES,
   FETCH_POPULAR_MOVIES,
@@ -58,6 +61,11 @@ const moviesReducer = (
           movies: [],
         },
       };
+    case CLEAR_NOW_PLAYING_MOVIES:
+      return {
+        ...state,
+        nowPlaying: initialState.nowPlaying,
+      };
     case NOW_PLAYING_MOVIES_ERROR:
       return {
         ...state,
@@ -102,6 +110,11 @@ const moviesReducer = (
           movies: [],
         },
       };
+    case CLEAR_POPULAR_MOVIES:
+      return {
+        ...state,
+        popular: initialState.popular,
+      };
     case POPULAR_MOVIES_ERROR:
       return {
         ...state,
@@ -144,6 +157,11 @@ const moviesReducer = (
           data: null,
           error: null,
         },
+      };
+    case CLEAR_MOVIE:
+      return {
+        ...state,
+        movie: initialState.movie,
       };
     case MOVIE_RECEIVED:
       if (action.payload.status === 200) {

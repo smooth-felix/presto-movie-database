@@ -6,6 +6,7 @@
   max-height: 200px;
   overflow: "hidden";
   white-space: "nowrap";
+  text-align: justify;
 }
 
 .more-button {
@@ -13,4 +14,30 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
+}
+
+@include media-breakpoint-down(md) {
+  .movie-card-image {
+    border-radius: 0;
+  }
+  .movie-title {
+    margin-top: 10px;
+  }
+
+  .movie-overview {
+    padding-bottom: 5px;
+  }
+
+  .more-button {
+    bottom: 5px;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    font-weight: 500;
+    color: $color-secondary;
+  }
+
+  .released-year {
+    margin-bottom: 0;
+  }
 }

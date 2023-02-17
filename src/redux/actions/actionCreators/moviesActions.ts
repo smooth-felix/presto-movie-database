@@ -4,6 +4,12 @@ import {
   PopularMovieApiResponse,
 } from "../../../types/moviesInterfaces";
 import {
+  ClearMovieAction,
+  ClearNowPlayingMoviesAction,
+  ClearPopularMoviesAction,
+  CLEAR_MOVIE,
+  CLEAR_NOW_PLAYING_MOVIES,
+  CLEAR_POPULAR_MOVIES,
   FetchMovieAction,
   FetchNowPlayingMoviesAction,
   FetchPopularMoviesAction,
@@ -33,6 +39,10 @@ export const fetchPopularMovies = (
   };
 };
 
+export const clearPopularMovies = (): ClearPopularMoviesAction => ({
+  type: CLEAR_POPULAR_MOVIES,
+});
+
 export const popularMoviesError = (): PopularMoviesErrorAction => ({
   type: POPULAR_MOVIES_ERROR,
 });
@@ -53,6 +63,10 @@ export const fetchNowPlayingMovies = (
   };
 };
 
+export const clearNowPlayingMovies = (): ClearNowPlayingMoviesAction => ({
+  type: CLEAR_NOW_PLAYING_MOVIES,
+});
+
 export const nowPlayingMoviesError = (): NowPlayingMoviesErrorAction => ({
   type: NOW_PLAYING_MOVIES_ERROR,
 });
@@ -68,6 +82,8 @@ export const fetchMovie = (payload: number): FetchMovieAction => ({
   type: FETCH_MOVIE,
   payload,
 });
+
+export const clearMovie = (): ClearMovieAction => ({ type: CLEAR_MOVIE });
 
 export const movieError = (): MovieErrorAction => ({
   type: MOVIE_ERROR,

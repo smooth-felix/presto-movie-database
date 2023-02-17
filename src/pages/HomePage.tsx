@@ -1,13 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import MovieList from "../components/MovieList";
-import { fetchNowPlayingMovies } from "../redux/actions/actionCreators/moviesActions";
+import Spinner from "../components/spinner/Spinner";
+import {
+  clearNowPlayingMovies,
+  fetchNowPlayingMovies,
+} from "../redux/actions/actionCreators/moviesActions";
 import {
   nowPlayingError,
   nowPlayingLoading,
   nowPlayingMeta,
   nowPlayingMovies,
 } from "../redux/selectors/moviesSelectors";
+
+const MovieList = lazy(() => import("../components/movieList/MovieList"));
 
 const HomePage: React.FC = () => {
   const dispatch = useDispatch();
@@ -21,6 +26,10 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchNowPlayingMovies(1));
+
+    return () => {
+      dispatch(clearNowPlayingMovies());
+    };
   }, []);
 
   const handleOnPageChange = (page: number) => {
@@ -29,14 +38,16 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <MovieList
-      currentPage={currentPage}
-      error={nowPlayingErrorStatus}
-      handleOnPageChange={handleOnPageChange}
-      loading={nowPlayingLoadingStatus}
-      metaData={nowPlayingMetaData}
-      movies={nowPlayingMoviesList}
-    />
+    <Suspense fallback={<Spinner loading={true} />}>
+      <MovieList
+        currentPage={currentPage}
+        error={nowPlayingErrorStatus}
+        handleOnPageChange={handleOnPageChange}
+        loading={nowPlayingLoadingStatus}
+        metaData={nowPlayingMetaData}
+        movies={nowPlayingMoviesList}
+      />
+    </Suspense>
   );
 };
 

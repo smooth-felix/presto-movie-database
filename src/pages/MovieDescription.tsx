@@ -4,14 +4,17 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovie } from "../redux/actions/actionCreators/moviesActions";
+import {
+  clearMovie,
+  fetchMovie,
+} from "../redux/actions/actionCreators/moviesActions";
 import {
   movie,
   movieError,
   movieLoading,
 } from "../redux/selectors/moviesSelectors";
-import Spinner from "../components/Spinner";
-import ErrorToast from "../components/ErrorToast";
+import Spinner from "../components/spinner/Spinner";
+import ErrorToast from "../components/errorToast/ErrorToast";
 
 const MovieDescription: React.FC = () => {
   const { movieId } = useParams();
@@ -39,6 +42,10 @@ const MovieDescription: React.FC = () => {
         navigate("/");
       }
     }
+
+    return () => {
+      dispatch(clearMovie());
+    };
   }, []);
 
   const generateGenres = (): string => {
@@ -63,7 +70,7 @@ const MovieDescription: React.FC = () => {
       <ErrorToast error={error} />
       {movieData && (
         <Row className="movie-details pt-5 ">
-          <Col md={12} lg={6} className="movie-details-inner">
+          <Col md={12} lg={6} className="movie-details-inner text-center">
             <img
               className="cover-image"
               src={`https://image.tmdb.org/t/p/w500${movieData?.poster_path}`}
@@ -74,7 +81,7 @@ const MovieDescription: React.FC = () => {
               {movieData?.title}
             </h1>
             <h5 className="text-info">{generateGenres()}</h5>
-            <div className="movie-details-text-subtitle">
+            <div className="movie-details-text-subtitle d-flex flex-row justify-content-between">
               <h4 className="text-primary">
                 {new Date(movieData?.release_date).getFullYear()}
               </h4>
@@ -85,14 +92,25 @@ const MovieDescription: React.FC = () => {
                 </span>{" "}
               </p>
             </div>
-            {movieData?.vote_average && (
-              <h6 className="text-info">
-                Rating: &nbsp;{" "}
-                <span className="text-primary">
-                  {`${movieData.vote_average.toFixed(2)}/ 10`}
-                </span>{" "}
-              </h6>
-            )}
+            <div className="d-flex flex-row justify-content-between">
+              {movieData?.vote_average && (
+                <h6 className="text-info">
+                  Rating: &nbsp;{" "}
+                  <span className="text-primary">
+                    {`${movieData.vote_average.toFixed(2)}/ 10`}
+                  </span>{" "}
+                </h6>
+              )}
+              {movieData?.revenue && (
+                <h6 className="text-info">
+                  Revenue: &nbsp;{" "}
+                  <span className="text-primary">
+                    {generateCurrency(movieData.revenue)}
+                  </span>{" "}
+                </h6>
+              )}
+            </div>
+
             <div className="movie-details-text-description">
               <>
                 <h4 className="text-primary">Overview</h4>
@@ -102,14 +120,6 @@ const MovieDescription: React.FC = () => {
                     : "No Description Given."}
                 </p>
               </>
-              {movieData?.revenue && (
-                <h6 className="text-info">
-                  Revenue: &nbsp;{" "}
-                  <span className="text-primary">
-                    {generateCurrency(movieData.revenue)}
-                  </span>{" "}
-                </h6>
-              )}
             </div>
           </Col>
         </Row>
