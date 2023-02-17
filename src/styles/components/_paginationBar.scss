@@ -1,3 +1,16 @@
-.sr-only {
-  display: none;
+.pagination {
+  --bs-pagination-border: none;
+
+  .page-item {
+    .page-link {
+      background-color: $color-secondary;
+      color: $color-white;
+    }
+  }
+  .active {
+    color: $color-primary;
+  }
+  .sr-only {
+    display: none;
+  }
 }

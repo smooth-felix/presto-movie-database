@@ -1,10 +1,32 @@
 .movie-details {
   text-align: left;
 
-  .cover-image {
-    width: 100%;
-    max-height: calc(100vh - 150px);
-    max-width: 500px;
-    width: auto;
+  &-inner {
+    .cover-image {
+      max-height: calc(100vh - 150px);
+      border: 5px solid $color-primary;
+    }
+  }
+
+  &-text {
+    padding-top: 25px;
+
+    &-subtitle {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    &-description {
+      margin-top: 25px;
+
+      .text-info {
+        text-align: justify;
+      }
+    }
   }
 }

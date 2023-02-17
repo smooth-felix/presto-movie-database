@@ -1,30 +1,21 @@
 import Pagination from "react-responsive-pagination";
-import { useState } from "react";
 
 type PaginationBarProps = {
   page: number;
   totalPages: number;
-};
-
-type ChangeEvent = {
-  target: {
-    name: string;
-    value: number;
-  };
+  handleOnPageChange: Function;
 };
 
 const PaginationBar: React.FC<PaginationBarProps> = (props) => {
-  const { page, totalPages } = props;
-
-  const [currentPage, setCurrentPage] = useState<number>(page);
+  const { page, totalPages, handleOnPageChange } = props;
 
   const handleOnChange = (page: number) => {
-    setCurrentPage(page);
+    handleOnPageChange(page);
   };
   return (
     <Pagination
-      current={currentPage}
-      total={totalPages}
+      current={page}
+      total={totalPages > 500 ? 500 : totalPages}
       onPageChange={handleOnChange}
     />
   );

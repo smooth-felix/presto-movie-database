@@ -23,18 +23,22 @@ export interface Result {
 }
 
 export interface PopularMoviesApiSuccessResponse extends GenericResponse {
-  dates: Dates;
-  page: number;
-  results: Result[];
-  total_pages: number;
-  total_results: number;
+  data: {
+    dates: Dates;
+    page: number;
+    results: Result[];
+    total_pages: number;
+    total_results: number;
+  };
 }
 
 export interface NowPlayingApiSuccessResponse extends GenericResponse {
-  page: number;
-  results: Result[];
-  total_pages: number;
-  total_results: number;
+  data: {
+    page: number;
+    results: Result[];
+    total_pages: number;
+    total_results: number;
+  };
 }
 
 export interface MetaData {
@@ -47,11 +51,6 @@ export interface CommonMoviesState {
   loading: boolean;
   movies: Result[];
   meta: MetaData;
-}
-
-export interface MoviesState {
-  popular: CommonMoviesState;
-  nowPlaying: CommonMoviesState;
 }
 
 export type PopularMovieApiResponse =
@@ -91,7 +90,8 @@ export interface SpokenLanguage {
   iso_639_1: string;
   name: string;
 }
-export interface MovieAPISuccessResponse {
+
+export interface SingleMovieInterface {
   adult: boolean;
   backdrop_path: string;
   belongs_to_collection: BelongsToCollection;
@@ -117,4 +117,24 @@ export interface MovieAPISuccessResponse {
   video: boolean;
   vote_average: number;
   vote_count: number;
+}
+
+export interface MovieApiSuccessResponse extends GenericResponse {
+  data: SingleMovieInterface;
+}
+
+export interface SingleMovieState {
+  data: SingleMovieInterface | null;
+  loading: boolean;
+  error: string | null;
+}
+
+export type MovieApiResponse =
+  | MovieApiSuccessResponse
+  | ApiGenericErrorResponse;
+
+export interface MoviesState {
+  popular: CommonMoviesState;
+  nowPlaying: CommonMoviesState;
+  movie: SingleMovieState;
 }

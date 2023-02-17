@@ -1,11 +1,6 @@
-import { useEffect } from "react";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ErrorToast from "../components/ErrorToast";
-import MovieCard from "../components/MovieCard";
-import PaginationBar from "../components/PaginationBar";
-import Spinner from "../components/Spinner";
+import MovieList from "../components/MovieList";
 import { fetchNowPlayingMovies } from "../redux/actions/actionCreators/moviesActions";
 import {
   nowPlayingError,
@@ -22,35 +17,26 @@ const HomePage: React.FC = () => {
   const nowPlayingErrorStatus = useSelector(nowPlayingError);
   const nowPlayingMetaData = useSelector(nowPlayingMeta);
 
+  const [currentPage, setCurrentPage] = useState(1);
+
   useEffect(() => {
-    dispatch(fetchNowPlayingMovies());
+    dispatch(fetchNowPlayingMovies(1));
   }, []);
 
+  const handleOnPageChange = (page: number) => {
+    setCurrentPage(page);
+    dispatch(fetchNowPlayingMovies(page));
+  };
+
   return (
-    <>
-      <Row xs={1} xl={2} className="g-4 mb-5">
-        <Spinner loading={nowPlayingLoadingStatus} />
-        <ErrorToast error={nowPlayingErrorStatus} />
-        {nowPlayingMoviesList.map((movie) => (
-          <Col key={movie.id}>
-            <MovieCard
-              releaseDate={movie.release_date}
-              title={movie.title}
-              overview={movie.overview}
-              imgSrc={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              key={movie.id}
-            />
-          </Col>
-        ))}
-      </Row>
-      <Row>
-        {nowPlayingMoviesList.length > 0 && (
-          <Col xs={12}>
-            <PaginationBar page={5} totalPages={10} />
-          </Col>
-        )}
-      </Row>
-    </>
+    <MovieList
+      currentPage={currentPage}
+      error={nowPlayingErrorStatus}
+      handleOnPageChange={handleOnPageChange}
+      loading={nowPlayingLoadingStatus}
+      metaData={nowPlayingMetaData}
+      movies={nowPlayingMoviesList}
+    />
   );
 };
 

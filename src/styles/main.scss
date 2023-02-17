@@ -8,6 +8,7 @@ $theme-colors: (
   "secondary": $color-secondary,
   "dark": $color-secondary,
   "info": $color-white,
+  "danger": $color-danger,
 );
 @import "~bootstrap/scss/bootstrap";
 
@@ -26,6 +27,7 @@ $theme-colors: (
 }
 
 body {
+  background-color: $color-secondary;
   margin: 0;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",

@@ -3,6 +3,8 @@ import {
   MetaData,
   MoviesState,
   Result,
+  SingleMovieInterface,
+  SingleMovieState,
 } from "../../types/moviesInterfaces";
 import { RootState } from "../reducers/rootReducer";
 
@@ -58,4 +60,24 @@ export const popularMeta = (state: RootState): MetaData => {
 export const popularError = (state: RootState): string | null => {
   const popularState = popular(state);
   return popularState.error;
+};
+
+export const movieData = (state: RootState): SingleMovieState => {
+  const moviesState = movies(state);
+  return moviesState.movie;
+};
+
+export const movie = (state: RootState): SingleMovieInterface | null => {
+  const movieState = movieData(state);
+  return movieState.data;
+};
+
+export const movieLoading = (state: RootState): boolean => {
+  const movieState = movieData(state);
+  return movieState.loading;
+};
+
+export const movieError = (state: RootState): string | null => {
+  const movieState = movieData(state);
+  return movieState.error;
 };

@@ -5,7 +5,7 @@ import HeaderNavigation from "./partials/HeaderNavigation";
 
 const BasicLayout: React.FC = () => {
   return (
-    <div>
+    <div className="bg-secondary h-100">
       <HeaderNavigation />
       <div>
         <Container className="pb-5">

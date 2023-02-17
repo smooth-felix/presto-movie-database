@@ -13,7 +13,7 @@ export const extractData = async (data: Response) => {
     // for 200 responses
     if (data.ok) {
       const responseData = await data.json();
-      return { ...responseData, status: data.status };
+      return { data: { ...responseData }, status: data.status };
     }
 
     // For error responses

@@ -1,5 +1,6 @@
 import { ConfigurationsApiResponse } from "../../types/configurationInterfaces";
 import {
+  MovieApiResponse,
   NowPlayingMovieApiResponse,
   PopularMovieApiResponse,
 } from "../../types/moviesInterfaces";
@@ -43,11 +44,16 @@ export const FETCH_NOW_PLAYING_MOVIES = "FETCH_NOW_PLAYING_MOVIES";
 export const NOW_PLAYING_MOVIES_RECEIVED = "NOW_PLAYING_MOVIES_RECEIVED";
 export const NOW_PLAYING_MOVIES_ERROR = "NOW_PLAYING_MOVIES_ERROR";
 
+export const FETCH_MOVIE = "FETCH_MOVIE";
+export const MOVIE_RECEIVED = "MOVIE_RECEIVED";
+export const MOVIE_ERROR = "MOVIE_ERROR";
+
 // Action Interfaces
 
 // popular
 export interface FetchPopularMoviesAction {
   type: typeof FETCH_POPULAR_MOVIES;
+  payload: number;
 }
 
 export interface PopularMoviesErrorAction {
@@ -67,6 +73,7 @@ export type PopularMoviesActionType =
 // now playing
 export interface FetchNowPlayingMoviesAction {
   type: typeof FETCH_NOW_PLAYING_MOVIES;
+  payload: number;
 }
 
 export interface NowPlayingMoviesErrorAction {
@@ -78,11 +85,31 @@ export interface NowPlayingMoviesReceivedAction {
   payload: NowPlayingMovieApiResponse;
 }
 
+export interface FetchMovieAction {
+  type: typeof FETCH_MOVIE;
+  payload: number;
+}
+
+export interface MovieErrorAction {
+  type: typeof MOVIE_ERROR;
+}
+
+export interface MovieReceivedAction {
+  type: typeof MOVIE_RECEIVED;
+  payload: MovieApiResponse;
+}
+
+export type MovieActionType =
+  | FetchMovieAction
+  | MovieErrorAction
+  | MovieReceivedAction;
+
 export type NowPlayingMoviesActionType =
   | FetchNowPlayingMoviesAction
   | NowPlayingMoviesErrorAction
   | NowPlayingMoviesReceivedAction;
 
 export type MoviesActionType =
+  | MovieActionType
   | PopularMoviesActionType
   | NowPlayingMoviesActionType;

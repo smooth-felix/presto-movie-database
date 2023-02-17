@@ -1,13 +1,16 @@
 import { ApiGenericErrorResponse } from "../../types/genericInterfaces";
 import {
+  MovieApiSuccessResponse,
   MoviesState,
   NowPlayingApiSuccessResponse,
   PopularMoviesApiSuccessResponse,
 } from "../../types/moviesInterfaces";
 import {
+  FETCH_MOVIE,
   FETCH_NOW_PLAYING_MOVIES,
   FETCH_POPULAR_MOVIES,
   MoviesActionType,
+  MOVIE_RECEIVED,
   NOW_PLAYING_MOVIES_ERROR,
   NOW_PLAYING_MOVIES_RECEIVED,
   POPULAR_MOVIES_ERROR,
@@ -32,6 +35,11 @@ const initialState: MoviesState = {
       total: 0,
     },
     movies: [],
+  },
+  movie: {
+    data: null,
+    loading: false,
+    error: null,
   },
 };
 
@@ -68,10 +76,10 @@ const moviesReducer = (
             error: null,
             loading: false,
             meta: {
-              page: response.page,
-              total: response.total_pages,
+              page: response.data.page,
+              total: response.data.total_pages,
             },
-            movies: response.results,
+            movies: response.data.results,
           },
         };
       }
@@ -112,10 +120,10 @@ const moviesReducer = (
             error: null,
             loading: false,
             meta: {
-              page: response.page,
-              total: response.total_pages,
+              page: response.data.page,
+              total: response.data.total_pages,
             },
-            movies: response.results,
+            movies: response.data.results,
           },
         };
       }
@@ -125,6 +133,34 @@ const moviesReducer = (
           ...state.popular,
           loading: false,
           movies: [],
+          error: (action.payload as ApiGenericErrorResponse).error,
+        },
+      };
+    case FETCH_MOVIE:
+      return {
+        ...state,
+        movie: {
+          loading: true,
+          data: null,
+          error: null,
+        },
+      };
+    case MOVIE_RECEIVED:
+      if (action.payload.status === 200) {
+        return {
+          ...state,
+          movie: {
+            data: (action.payload as MovieApiSuccessResponse).data,
+            loading: false,
+            error: null,
+          },
+        };
+      }
+      return {
+        ...state,
+        movie: {
+          data: null,
+          loading: false,
           error: (action.payload as ApiGenericErrorResponse).error,
         },
       };

@@ -1,8 +1,16 @@
 .movie-title {
   background-color: $color-secondary;
+  padding: 5px;
 }
 .movie-overview {
   max-height: 200px;
   overflow: "hidden";
   white-space: "nowrap";
+}
+
+.more-button {
+  // margin-left: auto;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
