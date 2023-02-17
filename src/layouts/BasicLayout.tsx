@@ -8,7 +8,7 @@ const BasicLayout: React.FC = () => {
     <div>
       <HeaderNavigation />
       <div>
-        <Container>
+        <Container className="pb-5">
           <Outlet />
         </Container>
       </div>

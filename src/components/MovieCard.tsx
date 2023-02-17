@@ -6,7 +6,7 @@ type MovieCardProps = {
   title: string;
   imgSrc: string;
   overview: string;
-  releaseDate: string;
+  releaseDate: Date;
 };
 
 const MovieCard: React.FC<MovieCardProps> = (props) => {
@@ -22,7 +22,7 @@ const MovieCard: React.FC<MovieCardProps> = (props) => {
         <Col md={6}>
           <Card.Title className="text-primary movie-title">{title}</Card.Title>
           <p>{releasedYear}</p>
-          <Card.Text>{overview}</Card.Text>
+          <Card.Text className="movie-overview">{overview}</Card.Text>
         </Col>
       </Row>
     </Card>

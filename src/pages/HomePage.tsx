@@ -1,40 +1,56 @@
 import { useEffect } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import ErrorToast from "../components/ErrorToast";
 import MovieCard from "../components/MovieCard";
 import PaginationBar from "../components/PaginationBar";
+import Spinner from "../components/Spinner";
 import { fetchNowPlayingMovies } from "../redux/actions/actionCreators/moviesActions";
+import {
+  nowPlayingError,
+  nowPlayingLoading,
+  nowPlayingMeta,
+  nowPlayingMovies,
+} from "../redux/selectors/moviesSelectors";
 
 const HomePage: React.FC = () => {
   const dispatch = useDispatch();
+
+  const nowPlayingMoviesList = useSelector(nowPlayingMovies);
+  const nowPlayingLoadingStatus = useSelector(nowPlayingLoading);
+  const nowPlayingErrorStatus = useSelector(nowPlayingError);
+  const nowPlayingMetaData = useSelector(nowPlayingMeta);
 
   useEffect(() => {
     dispatch(fetchNowPlayingMovies());
   }, []);
 
   return (
-    <Row xs={1} xl={2} className="g-4">
-      <Col>
-        <MovieCard
-          releaseDate="2022-11-09"
-          title="Wakanda Forever"
-          overview="Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death.  As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross and forge a new path for the kingdom of Wakanda."
-          imgSrc="https://image.tmdb.org/t/p/w500/sv1xJUazXeYqALzczSZ3O6nkH75.jpg"
-          key={"wakanda"}
-        />
-      </Col>
-      <Col>
-        <MovieCard
-          releaseDate="2022-11-09"
-          title="Wakanda Forever"
-          overview="This is a movie about wakanda"
-          imgSrc="https://image.tmdb.org/t/p/w500/sv1xJUazXeYqALzczSZ3O6nkH75.jpg"
-          key={"wakanda"}
-        />
-      </Col>
-      <PaginationBar page={5} totalPages={10} />
-    </Row>
+    <>
+      <Row xs={1} xl={2} className="g-4 mb-5">
+        <Spinner loading={nowPlayingLoadingStatus} />
+        <ErrorToast error={nowPlayingErrorStatus} />
+        {nowPlayingMoviesList.map((movie) => (
+          <Col key={movie.id}>
+            <MovieCard
+              releaseDate={movie.release_date}
+              title={movie.title}
+              overview={movie.overview}
+              imgSrc={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              key={movie.id}
+            />
+          </Col>
+        ))}
+      </Row>
+      <Row>
+        {nowPlayingMoviesList.length > 0 && (
+          <Col xs={12}>
+            <PaginationBar page={5} totalPages={10} />
+          </Col>
+        )}
+      </Row>
+    </>
   );
 };
 

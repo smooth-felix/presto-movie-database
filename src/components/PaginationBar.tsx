@@ -1,26 +1,32 @@
-import Pagination from "react-bootstrap/Pagination";
+import Pagination from "react-responsive-pagination";
+import { useState } from "react";
 
 type PaginationBarProps = {
   page: number;
   totalPages: number;
 };
 
+type ChangeEvent = {
+  target: {
+    name: string;
+    value: number;
+  };
+};
+
 const PaginationBar: React.FC<PaginationBarProps> = (props) => {
   const { page, totalPages } = props;
 
-  const pageArray = Array.from(Array(totalPages)).map(
-    (item, index) => index + 1
-  );
+  const [currentPage, setCurrentPage] = useState<number>(page);
 
+  const handleOnChange = (page: number) => {
+    setCurrentPage(page);
+  };
   return (
-    <Pagination>
-      <Pagination.Prev />
-      {pageArray.map((item) => (
-        <Pagination.Item active={item === page}>{item}</Pagination.Item>
-      ))}
-      <Pagination.Ellipsis />
-      <Pagination.Next />
-    </Pagination>
+    <Pagination
+      current={currentPage}
+      total={totalPages}
+      onPageChange={handleOnChange}
+    />
   );
 };
 

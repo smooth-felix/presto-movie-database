@@ -1,1 +1,8 @@
 @import "./movieCard";
+@import "./paginationBar";
+
+.spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
