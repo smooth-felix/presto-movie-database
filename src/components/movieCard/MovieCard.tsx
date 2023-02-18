@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 
-type MovieCardProps = {
+export type MovieCardProps = {
   title: string;
   imgSrc: string;
   overview: string;
@@ -37,10 +37,20 @@ const MovieCard: React.FC<MovieCardProps> = (props) => {
           <Card.Img className="movie-card-image" src={imgSrc} />
         </Col>
         <Col md={8}>
-          <Card.Title className="text-primary movie-title">{title}</Card.Title>
-          <p className="released-year">{releasedYear}</p>
-          <Card.Text className="movie-overview">{truncatedText}</Card.Text>
+          <Card.Title
+            data-testid="movie-title"
+            className="text-primary movie-title"
+          >
+            {title}
+          </Card.Title>
+          <p data-testid="released-year" className="released-year">
+            {releasedYear}
+          </p>
+          <Card.Text data-testid="movie-overview" className="movie-overview">
+            {truncatedText}
+          </Card.Text>
           <Button
+            data-testid="more-button"
             className="more-button"
             variant="primary"
             onClick={handleButtonClick}
