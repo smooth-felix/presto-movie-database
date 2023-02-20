@@ -1,0 +1,29 @@
+.movie-details {
+  text-align: left;
+
+  &-inner {
+    .cover-image {
+      max-height: calc(100vh - 150px);
+      border: 5px solid $color-primary;
+    }
+  }
+
+  &-text {
+    padding-top: 25px;
+
+    &-subtitle {
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    &-description {
+      margin-top: 25px;
+
+      .text-info {
+        text-align: justify;
+      }
+    }
+  }
+}

@@ -1,20 +1,22 @@
 @import "abstracts/variables";
 
-@import "base/base";
-@import "base/typography";
-
 $theme-colors: (
   "primary": $color-primary,
   "secondary": $color-secondary,
   "dark": $color-secondary,
   "info": $color-white,
+  "danger": $color-danger,
 );
 @import "~bootstrap/scss/bootstrap";
 
 @import "layout/header";
 @import "layout/footer";
 
-@import "pages/home";
+@import "pages/movieDescription";
+@import "pages/popularMovies";
+
+@import "components/components";
+
 * {
   margin: 0;
   padding: 0;
@@ -22,6 +24,7 @@ $theme-colors: (
 }
 
 body {
+  background-color: $color-secondary;
   margin: 0;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
