@@ -1,9 +1,8 @@
 import configurationsReducer from "../ConfigurationsReducer";
 import {
-  FETCH_CONFIGURATIONS,
   CONFIGURATIONS_ERROR,
-  CONFIGURATIONS_RECEIVED,
   ConfigurationsActionType,
+  FETCH_CONFIGURATIONS,
 } from "../../actions/ActionTypes";
 
 describe("configurationsReducer", () => {
@@ -24,7 +23,7 @@ describe("configurationsReducer", () => {
         error: null,
       },
     };
-    const action: ConfigurationsActionType = { type: "FETCH_CONFIGURATIONS" };
+    const action: ConfigurationsActionType = { type: FETCH_CONFIGURATIONS };
     expect(configurationsReducer(state, action)).toEqual({
       genreData: {
         loading: false,

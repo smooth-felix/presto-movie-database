@@ -3,7 +3,7 @@ import {
   NowPlayingMovieApiResponse,
   PopularMovieApiResponse,
 } from "../types/MoviesInterfaces";
-import { extractData } from "../utils/requestHandler";
+import { extractData } from "../utils/RequestHandler";
 
 export const fetchPopularMovies = (page: number) => {
   return fetch(

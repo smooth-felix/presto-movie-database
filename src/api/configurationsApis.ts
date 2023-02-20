@@ -1,5 +1,5 @@
 import { ConfigurationsApiResponse } from "../types/ConfigurationInterfaces";
-import { extractData } from "../utils/requestHandler";
+import { extractData } from "../utils/RequestHandler";
 
 export const fetchConfigurationsData = () => {
   return fetch(
