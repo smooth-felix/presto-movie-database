@@ -1,4 +1,4 @@
-import { ApiGenericErrorResponse, GenericResponse } from "./genericInterfaces";
+import { ApiGenericErrorResponse, GenericResponse } from "./GenericInterfaces";
 
 export interface GenreListItem {
   id: number;

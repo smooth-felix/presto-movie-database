@@ -2,7 +2,7 @@ import {
   MovieApiResponse,
   NowPlayingMovieApiResponse,
   PopularMovieApiResponse,
-} from "../../../types/moviesInterfaces";
+} from "../../../types/MoviesInterfaces";
 import {
   ClearMovieAction,
   ClearNowPlayingMoviesAction,
@@ -28,7 +28,7 @@ import {
   PopularMoviesReceivedAction,
   POPULAR_MOVIES_ERROR,
   POPULAR_MOVIES_RECEIVED,
-} from "../actionTypes";
+} from "../ActionTypes";
 
 export const fetchPopularMovies = (
   payload: number

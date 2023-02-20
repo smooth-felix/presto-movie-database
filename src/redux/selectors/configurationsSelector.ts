@@ -2,8 +2,8 @@ import {
   ConfigurationState,
   GenreListItem,
   GenreStateItem,
-} from "../../types/configurationInterfaces";
-import { RootState } from "../reducers/rootReducer";
+} from "../../types/ConfigurationInterfaces";
+import { RootState } from "../reducers/RootReducer";
 
 export const configurations = (state: RootState): ConfigurationState =>
   state.configurations;

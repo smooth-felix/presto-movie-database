@@ -1,11 +1,11 @@
 import React from "react";
-import ErrorToast from "../errorToast/ErrorToast";
+import ErrorToast from "../errortoast/ErrorToast";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "../spinner/Spinner";
-import { MetaData, Result } from "../../types/moviesInterfaces";
-import MovieCard from "../movieCard/MovieCard";
-import PaginationBar from "../paginationBar/PaginationBar";
+import { MetaData, Result } from "../../types/MoviesInterfaces";
+import MovieCard from "../moviecard/MovieCard";
+import PaginationBar from "../paginationbar/PaginationBar";
 
 type MovieListProps = {
   loading: boolean;

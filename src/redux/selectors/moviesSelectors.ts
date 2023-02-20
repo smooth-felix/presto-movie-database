@@ -5,8 +5,8 @@ import {
   Result,
   SingleMovieInterface,
   SingleMovieState,
-} from "../../types/moviesInterfaces";
-import { RootState } from "../reducers/rootReducer";
+} from "../../types/MoviesInterfaces";
+import { RootState } from "../reducers/RootReducer";
 
 export const movies = (state: RootState): MoviesState => {
   return state.movies;

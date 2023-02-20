@@ -1,10 +1,10 @@
-import configurationsReducer from "../configurationsReducer";
+import configurationsReducer from "../ConfigurationsReducer";
 import {
   FETCH_CONFIGURATIONS,
   CONFIGURATIONS_ERROR,
   CONFIGURATIONS_RECEIVED,
   ConfigurationsActionType,
-} from "../../actions/actionTypes";
+} from "../../actions/ActionTypes";
 
 describe("configurationsReducer", () => {
   it("should return the initial state", () => {

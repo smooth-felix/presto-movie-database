@@ -1,14 +1,14 @@
 import {
   ConfigurationState,
   ConfigurationSuccessResponse,
-} from "../../types/configurationInterfaces";
-import { ApiGenericErrorResponse } from "../../types/genericInterfaces";
+} from "../../types/ConfigurationInterfaces";
+import { ApiGenericErrorResponse } from "../../types/GenericInterfaces";
 import {
   ConfigurationsActionType,
   CONFIGURATIONS_ERROR,
   CONFIGURATIONS_RECEIVED,
   FETCH_CONFIGURATIONS,
-} from "../actions/actionTypes";
+} from "../actions/ActionTypes";
 
 const initialState: ConfigurationState = {
   genreData: {

@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import BasicLayout from "./layouts/BasicLayout";
+import BasicLayout from "./layout/BasicLayout";
 
 const Home = lazy(() => import("./pages/HomePage"));
 const Popular = lazy(() => import("./pages/PopularMovies"));

@@ -1,4 +1,4 @@
-import { ConfigurationsApiResponse } from "../types/configurationInterfaces";
+import { ConfigurationsApiResponse } from "../types/ConfigurationInterfaces";
 import { extractData } from "../utils/requestHandler";
 
 export const fetchConfigurationsData = () => {

@@ -7,13 +7,12 @@ $theme-colors: (
   "info": $color-white,
   "danger": $color-danger,
 );
+
 @import "~bootstrap/scss/bootstrap";
 
-@import "layout/header";
-@import "layout/footer";
+@import "layout/layout";
 
-@import "pages/movieDescription";
-@import "pages/popularMovies";
+@import "pages/pages";
 
 @import "components/components";
 

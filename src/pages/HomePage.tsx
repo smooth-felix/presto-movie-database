@@ -4,15 +4,15 @@ import Spinner from "../components/spinner/Spinner";
 import {
   clearNowPlayingMovies,
   fetchNowPlayingMovies,
-} from "../redux/actions/actionCreators/moviesActions";
+} from "../redux/actions/actionCreators/MoviesActions";
 import {
   nowPlayingError,
   nowPlayingLoading,
   nowPlayingMeta,
   nowPlayingMovies,
-} from "../redux/selectors/moviesSelectors";
+} from "../redux/selectors/MoviesSelectors";
 
-const MovieList = lazy(() => import("../components/movieList/MovieList"));
+const MovieList = lazy(() => import("../components/movielist/MovieList"));
 
 const HomePage: React.FC = () => {
   const dispatch = useDispatch();
