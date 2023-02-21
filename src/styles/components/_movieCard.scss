@@ -1,6 +1,6 @@
 .movie-title {
   background-color: $color-secondary;
-  padding: 5px;
+  padding: 0.32rem;
 }
 .movie-overview {
   max-height: 200px;
@@ -14,8 +14,8 @@
 .more-button {
   // margin-left: auto;
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 1.25rem;
+  right: 1.25rem;
 }
 
 @include media-breakpoint-down(md) {
@@ -23,16 +23,16 @@
     border-radius: 0;
   }
   .movie-title {
-    margin-top: 10px;
+    margin-top: 0.625rem;
   }
 
   .movie-overview {
-    padding-bottom: 5px;
+    padding-bottom: 0.32rem;
   }
 
   .more-button {
-    bottom: 5px;
-    right: 5px;
+    bottom: 0.32rem;
+    right: 0.32rem;
     background-color: transparent;
     border: none;
     font-weight: 500;

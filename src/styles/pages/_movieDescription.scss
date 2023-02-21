@@ -4,12 +4,12 @@
   &-inner {
     .cover-image {
       max-height: calc(100vh - 150px);
-      border: 5px solid $color-primary;
+      border: 0.32rem solid $color-primary;
     }
   }
 
   &-text {
-    padding-top: 25px;
+    padding-top: 1.5rem;
 
     &-subtitle {
       p {
@@ -19,7 +19,7 @@
     }
 
     &-description {
-      margin-top: 25px;
+      margin-top: 1.5rem;
 
       .text-info {
         text-align: justify;

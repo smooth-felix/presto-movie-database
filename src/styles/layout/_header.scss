@@ -1,12 +1,12 @@
 .navbar {
   padding: 0;
-  border-bottom: solid 2px $color-primary;
+  border-bottom: solid $border-width $color-primary;
 }
 
 .navbar-link {
   text-decoration: none;
   color: $color-white;
-  padding: 10px;
+  padding: 0.625rem;
 
   &:hover {
     color: $color-secondary;
@@ -21,11 +21,11 @@
 
 @include media-breakpoint-down(sm) {
   .navbar {
-    padding: 5px 0;
+    padding: 0.32rem 0;
   }
   .navbar-link {
-    margin-left: 0px;
-    padding: 4px;
+    margin-left: 0;
+    padding: 0.25rem;
 
     &--active {
       background-color: $color-primary;
