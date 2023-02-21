@@ -8,7 +8,7 @@ export type MovieCardProps = {
   title: string;
   imgSrc: string;
   overview: string;
-  releaseDate: Date;
+  releaseDate: string;
   id: number;
 };
 

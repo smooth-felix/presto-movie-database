@@ -1,8 +1,8 @@
 import { ApiGenericErrorResponse, GenericResponse } from "./GenericInterfaces";
 
 export interface Dates {
-  maximum: Date;
-  minimum: Date;
+  maximum: string;
+  minimum: string;
 }
 
 export interface Result {
@@ -15,7 +15,7 @@ export interface Result {
   overview: string;
   popularity: number;
   poster_path: string;
-  release_date: Date;
+  release_date: string;
   title: string;
   video: boolean;
   vote_average: number;
@@ -107,7 +107,7 @@ export interface SingleMovieInterface {
   poster_path: string;
   production_companies: ProductionCompany[];
   production_countries: ProductionCountry[];
-  release_date: Date;
+  release_date: string;
   revenue: number;
   runtime: number;
   spoken_languages: SpokenLanguage[];

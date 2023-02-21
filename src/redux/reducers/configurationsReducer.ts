@@ -27,7 +27,7 @@ const configurationsReducer = (
       return {
         ...state,
         genreData: {
-          loading: false,
+          loading: true,
           error: null,
           genres: [],
         },
