@@ -5,6 +5,7 @@ import {
   NowPlayingApiSuccessResponse,
   PopularMoviesApiSuccessResponse,
 } from "../../types/MoviesInterfaces";
+import actionSuccessHandler from "../../utils/ActionSuccessHandler";
 import {
   CLEAR_MOVIE,
   CLEAR_NOW_PLAYING_MOVIES,
@@ -76,7 +77,7 @@ const moviesReducer = (
         },
       };
     case NOW_PLAYING_MOVIES_RECEIVED:
-      if (action.payload.status === 200) {
+      if (actionSuccessHandler(action.payload.status)) {
         const response = action.payload as NowPlayingApiSuccessResponse;
         return {
           ...state,

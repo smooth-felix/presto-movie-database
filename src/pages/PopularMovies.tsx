@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import DropDown from "../components/dropdown/DropDown";
 import MovieList from "../components/movielist/MovieList";
 import SearchBar from "../components/searchbar/SearchBar";
-import { fetchConfigurations } from "../redux/actions/actionCreators/ConfigurationActions";
+import {
+  clearConfigurations,
+  fetchConfigurations,
+} from "../redux/actions/actionCreators/ConfigurationActions";
 import {
   clearPopularMovies,
   fetchPopularMovies,
@@ -37,6 +40,7 @@ const PopularMovies: React.FC = () => {
     dispatch(fetchConfigurations());
     return () => {
       dispatch(clearPopularMovies());
+      dispatch(clearConfigurations());
     };
   }, []);
 
