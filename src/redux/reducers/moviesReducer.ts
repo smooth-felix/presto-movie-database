@@ -1,10 +1,10 @@
-import { ApiGenericErrorResponse } from "../../types/genericInterfaces";
+import { ApiGenericErrorResponse } from "../../types/GenericInterfaces";
 import {
   MovieApiSuccessResponse,
   MoviesState,
   NowPlayingApiSuccessResponse,
   PopularMoviesApiSuccessResponse,
-} from "../../types/moviesInterfaces";
+} from "../../types/MoviesInterfaces";
 import {
   CLEAR_MOVIE,
   CLEAR_NOW_PLAYING_MOVIES,
@@ -18,7 +18,7 @@ import {
   NOW_PLAYING_MOVIES_RECEIVED,
   POPULAR_MOVIES_ERROR,
   POPULAR_MOVIES_RECEIVED,
-} from "../actions/actionTypes";
+} from "../actions/ActionTypes";
 
 const initialState: MoviesState = {
   popular: {

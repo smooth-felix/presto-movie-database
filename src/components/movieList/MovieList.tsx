@@ -1,11 +1,12 @@
 import React from "react";
-import ErrorToast from "../errorToast/ErrorToast";
+import ErrorToast from "../errortoast/ErrorToast";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "../spinner/Spinner";
-import { MetaData, Result } from "../../types/moviesInterfaces";
-import MovieCard from "../movieCard/MovieCard";
-import PaginationBar from "../paginationBar/PaginationBar";
+import { MetaData, Result } from "../../types/MoviesInterfaces";
+import MovieCard from "../moviecard/MovieCard";
+import PaginationBar from "../paginationbar/PaginationBar";
+import { PER_PAGE_LIMIT } from "../../utils/Constants";
 
 type MovieListProps = {
   loading: boolean;
@@ -43,7 +44,7 @@ const MovieList: React.FC<MovieListProps> = (props) => {
         )}
       </Row>
       <Row>
-        {movies.length === 20 && (
+        {movies.length === PER_PAGE_LIMIT && (
           <Col xs={12}>
             <PaginationBar
               handleOnPageChange={handleOnPageChange}

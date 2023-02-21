@@ -7,14 +7,14 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   clearMovie,
   fetchMovie,
-} from "../redux/actions/actionCreators/moviesActions";
+} from "../redux/actions/actionCreators/MoviesActions";
 import {
   movie,
   movieError,
   movieLoading,
-} from "../redux/selectors/moviesSelectors";
+} from "../redux/selectors/MoviesSelectors";
 import Spinner from "../components/spinner/Spinner";
-import ErrorToast from "../components/errorToast/ErrorToast";
+import ErrorToast from "../components/errortoast/ErrorToast";
 
 const MovieDescription: React.FC = () => {
   const { movieId } = useParams();

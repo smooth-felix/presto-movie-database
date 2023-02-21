@@ -8,7 +8,7 @@ export type MovieCardProps = {
   title: string;
   imgSrc: string;
   overview: string;
-  releaseDate: Date;
+  releaseDate: string;
   id: number;
 };
 
@@ -20,11 +20,7 @@ const MovieCard: React.FC<MovieCardProps> = (props) => {
   const releasedYear = new Date(releaseDate).getFullYear();
 
   const truncatedText =
-    overview.length === 0
-      ? "No description is given."
-      : overview.length > 250
-      ? overview.substring(0, 200) + "..."
-      : overview;
+    overview.length === 0 ? "No description is given." : overview;
 
   const handleButtonClick = () => {
     navigate(`/movie/${id}`);

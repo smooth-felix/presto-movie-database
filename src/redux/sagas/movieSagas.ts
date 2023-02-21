@@ -7,12 +7,12 @@ import {
   FETCH_MOVIE,
   FETCH_NOW_PLAYING_MOVIES,
   FETCH_POPULAR_MOVIES,
-} from "../actions/actionTypes";
+} from "../actions/ActionTypes";
 import {
   MovieApiResponse,
   NowPlayingMovieApiResponse,
   PopularMovieApiResponse,
-} from "../../types/moviesInterfaces";
+} from "../../types/MoviesInterfaces";
 import {
   movieError,
   movieReceived,
@@ -20,7 +20,7 @@ import {
   nowPlayingMoviesReceived,
   popularMoviesError,
   popularMoviesReceived,
-} from "../actions/actionCreators/moviesActions";
+} from "../actions/actionCreators/MoviesActions";
 
 function* fetchNowPlayingMovies(action: FetchNowPlayingMoviesAction) {
   try {

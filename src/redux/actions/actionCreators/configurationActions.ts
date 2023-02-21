@@ -1,4 +1,4 @@
-import { ConfigurationsApiResponse } from "../../../types/configurationInterfaces";
+import { ConfigurationsApiResponse } from "../../../types/ConfigurationInterfaces";
 import {
   ConfigurationsErrorActions,
   ConfigurationsReceivedAction,
@@ -6,7 +6,7 @@ import {
   CONFIGURATIONS_RECEIVED,
   FetchConfigurationsAction,
   FETCH_CONFIGURATIONS,
-} from "../actionTypes";
+} from "../ActionTypes";
 
 export const fetchConfigurations = (): FetchConfigurationsAction => {
   return {

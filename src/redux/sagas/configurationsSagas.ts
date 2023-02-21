@@ -1,11 +1,11 @@
 import { put, takeEvery } from "redux-saga/effects";
-import { ConfigurationsApiResponse } from "../../types/configurationInterfaces";
+import { ConfigurationsApiResponse } from "../../types/ConfigurationInterfaces";
 import * as API from "../../api/configurationsApis";
-import { FETCH_CONFIGURATIONS } from "../actions/actionTypes";
+import { FETCH_CONFIGURATIONS } from "../actions/ActionTypes";
 import {
   configurationsError,
   configurationsReceived,
-} from "../actions/actionCreators/configurationActions";
+} from "../actions/actionCreators/ConfigurationActions";
 
 function* fetchConfigurations() {
   try {

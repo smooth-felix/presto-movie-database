@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import DropDown from "../components/dropDown/DropDown";
-import MovieList from "../components/movieList/MovieList";
-import SearchBar from "../components/searchBar/SearchBar";
-import { fetchConfigurations } from "../redux/actions/actionCreators/configurationActions";
+import DropDown from "../components/dropdown/DropDown";
+import MovieList from "../components/movielist/MovieList";
+import SearchBar from "../components/searchbar/SearchBar";
+import { fetchConfigurations } from "../redux/actions/actionCreators/ConfigurationActions";
 import {
   clearPopularMovies,
   fetchPopularMovies,
-} from "../redux/actions/actionCreators/moviesActions";
-import { genreList } from "../redux/selectors/configurationsSelector";
+} from "../redux/actions/actionCreators/MoviesActions";
+import { genreList } from "../redux/selectors/ConfigurationsSelector";
 import {
   popularError,
   popularLoading,
   popularMeta,
   popularMovies,
-} from "../redux/selectors/moviesSelectors";
-import { Result } from "../types/moviesInterfaces";
+} from "../redux/selectors/MoviesSelectors";
+import { Result } from "../types/MoviesInterfaces";
 
 const PopularMovies: React.FC = () => {
   const dispatch = useDispatch();

@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { ConfigurationState } from "../../types/configurationInterfaces";
-import { MoviesState } from "../../types/moviesInterfaces";
-import configurationsReducer from "./configurationsReducer";
-import moviesReducer from "./moviesReducer";
+import { ConfigurationState } from "../../types/ConfigurationInterfaces";
+import { MoviesState } from "../../types/MoviesInterfaces";
+import configurationsReducer from "./ConfigurationsReducer";
+import moviesReducer from "./MoviesReducer";
 
 export type RootState = {
   configurations: ConfigurationState;

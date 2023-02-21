@@ -1,9 +1,9 @@
-import { ConfigurationsApiResponse } from "../../types/configurationInterfaces";
+import { ConfigurationsApiResponse } from "../../types/ConfigurationInterfaces";
 import {
   MovieApiResponse,
   NowPlayingMovieApiResponse,
   PopularMovieApiResponse,
-} from "../../types/moviesInterfaces";
+} from "../../types/MoviesInterfaces";
 
 // configurations actions
 
