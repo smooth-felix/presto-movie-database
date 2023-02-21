@@ -24,7 +24,6 @@ const MovieList: React.FC<MovieListProps> = (props) => {
   return (
     <>
       <Row xs={1} xl={2} className="g-4 pt-4 mb-5">
-        <Spinner loading={loading} />
         <ErrorToast error={error} />
         {movies.length !== 0 ? (
           movies.map((movie) => (
@@ -43,6 +42,7 @@ const MovieList: React.FC<MovieListProps> = (props) => {
           <h4 className="text-primary">No movies are found..</h4>
         )}
       </Row>
+      <Spinner loading={true} />
       <Row>
         {movies.length === PER_PAGE_LIMIT && (
           <Col xs={12}>
