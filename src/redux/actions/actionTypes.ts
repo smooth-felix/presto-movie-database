@@ -11,8 +11,13 @@ import {
 export const FETCH_CONFIGURATIONS = "FETCH_CONFIGURATIONS";
 export const CONFIGURATIONS_RECEIVED = "CONFIGURATIONS_RECEIVED";
 export const CONFIGURATIONS_ERROR = "CONFIGURATIONS_ERROR";
+export const CLEAR_CONFIGURATIONS = "CLEAR_CONFIGURATIONS";
 
 // Action Interfaces
+
+export interface ClearConfigurationsActions {
+  type: typeof CLEAR_CONFIGURATIONS;
+}
 
 export interface FetchConfigurationsAction {
   type: typeof FETCH_CONFIGURATIONS;
@@ -30,7 +35,8 @@ export interface ConfigurationsReceivedAction {
 export type ConfigurationsActionType =
   | FetchConfigurationsAction
   | ConfigurationsReceivedAction
-  | ConfigurationsErrorActions;
+  | ConfigurationsErrorActions
+  | ClearConfigurationsActions;
 
 // movies actions
 

@@ -1,5 +1,7 @@
 import { ConfigurationsApiResponse } from "../../../types/ConfigurationInterfaces";
 import {
+  ClearConfigurationsActions,
+  CLEAR_CONFIGURATIONS,
   ConfigurationsErrorActions,
   ConfigurationsReceivedAction,
   CONFIGURATIONS_ERROR,
@@ -13,6 +15,10 @@ export const fetchConfigurations = (): FetchConfigurationsAction => {
     type: FETCH_CONFIGURATIONS,
   };
 };
+
+export const clearConfigurations = (): ClearConfigurationsActions => ({
+  type: CLEAR_CONFIGURATIONS,
+});
 
 export const configurationsError = (): ConfigurationsErrorActions => ({
   type: CONFIGURATIONS_ERROR,
